@@ -1,0 +1,58 @@
+.login-container {
+  max-width: 420px;
+  margin: 0 auto;
+  margin-top: 0;
+  font-size: medium;
+  background-color: azure;
+  font-family: 'Stint Ultra Condensed', cursive;
+  padding-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+}
+.no-account {
+  max-width: 420px;
+  margin: 0 auto;
+  margin-top: 0;
+  font-size: 30px;
+  background-color: azure;
+  font-family: 'Stint Ultra Condensed', cursive;
+  padding-bottom: 40px;
+}
+.password-register-container {
+  background-color: azure;
+  margin-top: 60px;
+  max-width: 420px;
+  font-family: 'Stint Ultra Condensed', cursive;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+.login-heading {
+  color: rgba(243, 156, 18, 1);
+  font-family: 'Arvo', serif;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1.75rem;
+}
+
+.login-div {
+  text-align: center;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 60%;
+  margin: auto;
+}
+.error-div{
+  text-align:center;
+  width:60%;
+  margin:auto
+}
+@media only screen and (max-width: 1080px) {
+  .login-div {
+    width: 90%;
+  }
+  .error-div{
+  width: 100%;
+  }
+}
+

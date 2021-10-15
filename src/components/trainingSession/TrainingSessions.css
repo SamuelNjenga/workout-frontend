@@ -1,0 +1,21 @@
+.product-heading {
+  color: rgba(243, 156, 18, 1);
+  font-family: 'Arvo', serif;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1.75rem;
+}
+.product-price {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9rem;
+}
+.product-description-title {
+  font-family: 'Signika Negative', sans-serif;
+  font-size: 1.65rem;
+}
+.product-description-price {
+  font-family: 'Signika Negative', sans-serif;
+  font-size: 1.55rem;
+}
+.title-others {
+  color: rgba(243, 156, 18, 1);
+}

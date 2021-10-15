@@ -1,0 +1,42 @@
+.nav-heading {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.1rem;
+}
+.btn-link {
+  font-size: 0.9rem;
+}
+
+@media only screen and (max-width: 1080px) {
+  .btn-link {
+    font-size: 0.9rem;
+  }
+}
+
+.login-btn,
+.signup-btn {
+  cursor: pointer;
+  width: 90%;
+  text-decoration: none;
+  border-radius: 40px;
+  margin-left: 10px !important;
+  margin-top: 0 !important;
+}
+.logout-btn{
+  cursor: pointer;
+  width: 100%;
+  text-decoration: none;
+  border-radius: 40px;
+  margin-left: 10px !important;
+  margin-top: 0 !important;
+}
+
+@media only screen and (max-width: 990px) {
+  .logout-btn,
+  .login-btn,
+  .signup-btn {
+    width: 30%;
+    text-decoration: none;
+    margin-left: 10px !important;
+    margin-top: 10px !important;
+  }
+}

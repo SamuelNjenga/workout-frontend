@@ -1,0 +1,11 @@
+.App {
+  text-align: center;
+}
+
+.content-container {
+  min-height: calc(100vh - 34px);
+}
+
+body {
+  padding-top: 6.8rem;
+}
