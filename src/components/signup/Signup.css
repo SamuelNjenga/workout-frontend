@@ -1,0 +1,51 @@
+.signup-container {
+  max-width: 420px;
+  margin: 0 auto;
+  margin-top: 0;
+  font-size: medium;
+  z-index: 1000;
+  background-color: azure;
+  font-family: 'Stint Ultra Condensed', cursive;
+  padding-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.register-heading {
+  color: rgba(243, 156, 18, 1);
+  font-family: 'Arvo', serif;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1.75rem;
+  margin: 10px;
+}
+.signup-div {
+  text-align: center;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 60%;
+  margin: auto;
+}
+.error-div {
+  text-align: center;
+  width: 60%;
+  margin: auto;
+}
+.register-btn {
+  text-align: left;
+  margin-left: 10px;
+}
+@media only screen and (max-width: 1080px) {
+  .signup-div {
+    width: 90%;
+  }
+  .error-div {
+    width: 100%;
+  }
+  .register-btn {
+    margin-left: 130px;
+  }
+  .register-heading {
+    font-size: 1.45rem;
+  }
+}

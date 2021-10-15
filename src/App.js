@@ -6,6 +6,7 @@ import Navigation from './components/header/Navigation'
 import Login from './components/login/Login'
 import Home from './pages/home/Home.js'
 import Logout from './components/logout/Logout'
+import Signup from './components/signup/Signup'
 
 import './App.css'
 import { TrainingSessionProvider } from './contexts/TrainingSessionContext'
@@ -23,7 +24,8 @@ const App = () => {
               <Switch>
                 <Route path='/' exact={true} component={Home} />
                 <Route path='/login' exact={true} component={Login} />
-                ;<Route path='/logout' exact={true} component={Logout} />
+                <Route path='/logout' exact={true} component={Logout} />
+                <Route path='/signup' exact={true} component={Signup} />
               </Switch>
             </Router>
           </UserProvider>
