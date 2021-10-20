@@ -81,6 +81,7 @@ function Login () {
                     history.push('/')
                     localStorage.setItem('token', resp.data.accessToken)
                     localStorage.setItem('userId', resp.data.data.id)
+                    localStorage.setItem('memberId', resp.data.data.memberId)
                     localStorage.setItem('fname', resp.data.data.firstName)
                     setUserId(resp.data.id)
                     setAuthentication(true)

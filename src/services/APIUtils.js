@@ -33,11 +33,17 @@ export const postRemoveFromCart = async values => {
 export const getSessions = async page => {
   return axios.get(`${API_BASE_URL}/v1/trainingSessions?page=${page}`)
 }
+export const getBookings = async page => {
+  return axios.get(`${API_BASE_URL}/v1/bookings?page=${page}`)
+}
 export const getProduct = async id => {
   return axios.get(`${API_BASE_URL}/v1/products/${id}`)
 }
 export const getAccountDetails = async id => {
   return axios.get(`${API_BASE_URL}/v1/user/${id}`)
+}
+export const getBookingDetails = async id => {
+  return axios.get(`${API_BASE_URL}/v1/bookings/${id}`)
 }
 export const getUserDetails = async id => {
   return axios.get(`${API_BASE_URL}/v1/user/${id}`)
@@ -69,6 +75,6 @@ export const getProductsBasedOnTitle = async (title, page) => {
   return axios.get(`${API_BASE_URL}/v1/categories/title/${title}?page=${page}`)
 }
 
-export const bookSession = async (data) => {
-  return axios.post(`${API_BASE_URL}/v1/bookings/book/`,data)
+export const bookSession = async data => {
+  return axios.post(`${API_BASE_URL}/v1/bookings/book/`, data)
 }
