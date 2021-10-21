@@ -12,7 +12,7 @@ export const BookingProvider = props => {
   const memberId = localStorage.getItem('memberId')
 
   const fetchSessions = async () => {
-    const res = await getBookingDetails(memberId)
+    const res = await getBookingDetails(memberId, page)
     const data = res?.data?.bookings
     const curr = res?.data?.currentPage
     const num = res?.data?.totalPages

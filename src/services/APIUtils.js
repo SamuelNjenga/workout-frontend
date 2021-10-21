@@ -42,8 +42,8 @@ export const getProduct = async id => {
 export const getAccountDetails = async id => {
   return axios.get(`${API_BASE_URL}/v1/user/${id}`)
 }
-export const getBookingDetails = async id => {
-  return axios.get(`${API_BASE_URL}/v1/bookings/${id}`)
+export const getBookingDetails = async (id, page) => {
+  return axios.get(`${API_BASE_URL}/v1/bookings/${id}?page=${page}`)
 }
 export const getUserDetails = async id => {
   return axios.get(`${API_BASE_URL}/v1/user/${id}`)
@@ -77,4 +77,7 @@ export const getProductsBasedOnTitle = async (title, page) => {
 
 export const bookSession = async data => {
   return axios.post(`${API_BASE_URL}/v1/bookings/book/`, data)
+}
+export const cancelSession = async data => {
+  return axios.post(`${API_BASE_URL}/v1/bookings/cancel/`, data)
 }
