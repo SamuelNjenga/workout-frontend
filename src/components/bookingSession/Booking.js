@@ -1,7 +1,12 @@
 import { Button, makeStyles } from '@material-ui/core'
+import Card from '@material-ui/core/Card'
+import CardActionArea from '@material-ui/core/CardActionArea'
+import CardActions from '@material-ui/core/CardActions'
+import CardContent from '@material-ui/core/CardContent'
+import Chip from '@material-ui/core/Chip'
+
 import toast, { Toaster } from 'react-hot-toast'
 import React from 'react'
-import { cancelSession } from '../../services/APIUtils.js'
 import { useBookings } from '../../contexts/BookingContext'
 
 const useStyles = makeStyles(theme => ({
@@ -23,36 +28,54 @@ const useStyles = makeStyles(theme => ({
 const notify = () => toast.success('The booking was cancelled successfully.')
 
 const Booking = ({ booking }) => {
-  const { setBookings} = useBookings()
+  const { cancelFunction, page } = useBookings()
   const classes = useStyles()
-  const cancelFunction = async(bookingId) => {
-  try {
-    const res = await cancelSession({
-      bookingId
-    })
-    setBookings(res?.data?.bookings)
-    notify()
-  } catch (e) {
-    console.log(e)
-  }
-}
 
   return (
     <div>
-     <Toaster />
-      <h4>{booking.id}</h4>
-      <h4>Member Id : {booking.memberId}</h4>
-      <h4>Member Status : {booking.status}</h4>
-      <Button
-        variant='contained'
-        color='primary'
-        disableRipple
-        className={classes.margin}
-        style={{ cursor: 'pointer', borderRadius: '40px' }}
-        onClick={() => cancelFunction(booking.id)}
-      >
-        Cancel Now
-      </Button>
+      <Card className={classes.root}>
+        <Toaster />
+        <CardActionArea>
+          <CardContent>
+            <header className='product-price'>
+              {' '}
+              Service Id : {booking.id}
+            </header>
+            <header className='product-price'>
+              Member Id : {booking.memberId}
+            </header>
+            <header className='product-price'>
+              Member Status : <Chip label={booking.status} />
+            </header>
+          </CardContent>
+        </CardActionArea>
+        <CardActions classes={{ root: classes.rootTwo }}>
+          <Button
+            variant='contained'
+            color='primary'
+            disableRipple
+            className={classes.margin}
+            size='small'
+            style={{ cursor: 'pointer', borderRadius: '40px' }}
+          >
+            View More
+          </Button>
+          <Button
+            variant='contained'
+            color='primary'
+            disableRipple
+            className={classes.margin}
+            style={{ cursor: 'pointer', borderRadius: '40px' }}
+            size='small'
+            onClick={() => {
+              notify()
+              cancelFunction(booking.id, page)
+            }}
+          >
+            Cancel Now
+          </Button>
+        </CardActions>
+      </Card>
     </div>
   )
 }

@@ -14,10 +14,6 @@ const BookingSessionsList = () => {
     setPage(value - 1)
   }
 
-  //   useEffect(() => {
-  //   window.scrollTo(0, 100)
-  // }, [handleChange])
-
   return (
     <>
       <div className='equipment-container'>
@@ -37,7 +33,7 @@ const BookingSessionsList = () => {
         <div style={{ margin: 'auto', width: '60%' }}>
           <Pagination
             count={count}
-            page={page}
+            page={page + 1}
             color='primary'
             variant='outlined'
             shape='rounded'

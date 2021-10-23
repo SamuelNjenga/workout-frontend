@@ -5,6 +5,7 @@ import CardActionArea from '@material-ui/core/CardActionArea'
 import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import { makeStyles, withStyles } from '@material-ui/core/styles'
+import Chip from '@material-ui/core/Chip'
 import Alert from '@material-ui/lab/Alert'
 import { Image } from 'cloudinary-react'
 import React, { useState } from 'react'
@@ -12,8 +13,6 @@ import toast, { Toaster } from 'react-hot-toast'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 import { bookSession } from '../../services/APIUtils'
-// import { useCart } from '../../contexts/CartContext'
-// import { useOrder } from '../../contexts/OrderContext'
 
 export const BootstrapButton = withStyles({
   root: {
@@ -73,8 +72,6 @@ const notify = () => toast.success('The booking was successful.')
 
 const TrainingSession = ({ session }) => {
   const classes = useStyles()
-  // const { cart } = useCart()
-  // const { addToCart } = useOrder()
   const [open, setOpen] = useState(false)
   const userId = localStorage.getItem('userId')
 
@@ -118,6 +115,11 @@ const TrainingSession = ({ session }) => {
               {' '}
               Service End Time :{' '}
               {moment(session.endTime).format('MMMM Do YYYY, h:mm:ss a')}
+            </header>
+            <header className='product-price'>
+              {' '}
+              Service State : <Chip label={session.state} />
+
             </header>
           </CardContent>
         </CardActionArea>
