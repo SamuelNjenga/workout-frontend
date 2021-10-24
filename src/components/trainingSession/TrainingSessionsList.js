@@ -35,7 +35,7 @@ const TrainingSessionsList = () => {
         <div style={{ margin: 'auto', width: '60%' }}>
           <Pagination
             count={count}
-            page={page}
+            page={page + 1}
             color='primary'
             variant='outlined'
             shape='rounded'

@@ -44,6 +44,7 @@ const Booking = ({ booking }) => {
             <header className='product-price'>
               Member Id : {booking.memberId}
             </header>
+            <header className='product-price'>Session Id : {booking.sessionId}</header>
             <header className='product-price'>
               Member Status : <Chip label={booking.status} />
             </header>

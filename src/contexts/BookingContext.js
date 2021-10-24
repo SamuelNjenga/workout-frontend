@@ -1,12 +1,17 @@
 import React, { createContext, useState, useContext, useEffect } from 'react'
-import { cancelSession, getBookingDetails } from '../services/APIUtils'
+import {
+  cancelSession,
+  getAllBookingDetails,
+  getBookingDetails
+} from '../services/APIUtils'
 export const BookingContext = createContext()
 export function useBookings () {
   return useContext(BookingContext)
 }
 export const BookingProvider = props => {
-  const key = 'Page'
+  // const key = 'Page'
   const [bookings, setBookings] = useState([])
+  const [allBookings, setAllBookings] = useState([])
   const [count, setCount] = useState(null)
   // const [page, setPage] = useState(() => {
   //   const persistedValue = localStorage.getItem(key)
@@ -42,6 +47,16 @@ export const BookingProvider = props => {
     fetchSessions()
   }, [page])
 
+  const fetchAllSessions = async () => {
+    const res = await getAllBookingDetails(memberId)
+    const data = res?.data
+    setAllBookings(data)
+    setLoading(false)
+  }
+  useEffect(() => {
+    fetchAllSessions()
+  }, [])
+
   return (
     <BookingContext.Provider
       value={{
@@ -50,6 +65,7 @@ export const BookingProvider = props => {
         count,
         page,
         setCount,
+        allBookings,
         setPage,
         isLoading,
         setLoading,

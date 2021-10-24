@@ -12,7 +12,8 @@ import React, { useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
-import { bookSession } from '../../services/APIUtils'
+import { bookSession, checkSession } from '../../services/APIUtils'
+import { useBookings } from '../../contexts/BookingContext'
 
 export const BootstrapButton = withStyles({
   root: {
@@ -71,9 +72,12 @@ const useStyles = makeStyles(theme => ({
 const notify = () => toast.success('The booking was successful.')
 
 const TrainingSession = ({ session }) => {
+  const { bookings, allBookings } = useBookings()
+
   const classes = useStyles()
   const [open, setOpen] = useState(false)
   const userId = localStorage.getItem('userId')
+  const memberId = localStorage.getItem('memberId')
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
@@ -93,6 +97,32 @@ const TrainingSession = ({ session }) => {
       notify()
     } catch (e) {
       console.log(e)
+    }
+  }
+
+  // const checkFunction = async (id, memberId) => {
+  //   try {
+  //     const res = await checkSession({
+  //       id: id,
+  //       memberId: memberId
+  //     })
+  //     console.log('RES', res.data)
+  //     return res.data
+  //   } catch (e) {
+  //     console.log(e)
+  //   }
+  // }
+
+  const checkFunction = id => {
+    if (allBookings && allBookings?.length) {
+      console.log('HEYYY', allBookings)
+      const item = allBookings.find(
+        item => item.sessionId === id && item.status === 'BOOKED'
+      )
+      if (item) {
+        console.log('HEY', item)
+        return true
+      } else return false
     }
   }
 
@@ -119,7 +149,6 @@ const TrainingSession = ({ session }) => {
             <header className='product-price'>
               {' '}
               Service State : <Chip label={session.state} />
-
             </header>
           </CardContent>
         </CardActionArea>
@@ -143,7 +172,7 @@ const TrainingSession = ({ session }) => {
             style={{ cursor: 'pointer', borderRadius: '40px' }}
             onClick={() => bookFunction(userId, session, 1)}
           >
-            Book Now
+            {checkFunction(session.id) ? 'ALREADY BOOKED' : 'BOOK NOW'}
           </Button>
         </CardActions>
       </Card>

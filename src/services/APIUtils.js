@@ -45,6 +45,9 @@ export const getAccountDetails = async id => {
 export const getBookingDetails = async (id, page) => {
   return axios.get(`${API_BASE_URL}/v1/bookings/${id}?page=${page}`)
 }
+export const getAllBookingDetails = async (id) => {
+  return axios.get(`${API_BASE_URL}/v1/bookings/all/${id}`)
+}
 export const getUserDetails = async id => {
   return axios.get(`${API_BASE_URL}/v1/user/${id}`)
 }
@@ -74,9 +77,11 @@ export const getSpecificOrderItems = async (id, orderId) => {
 export const getProductsBasedOnTitle = async (title, page) => {
   return axios.get(`${API_BASE_URL}/v1/categories/title/${title}?page=${page}`)
 }
-
 export const bookSession = async data => {
   return axios.post(`${API_BASE_URL}/v1/bookings/book/`, data)
+}
+export const checkSession = async data => {
+  return axios.post(`${API_BASE_URL}/v1/trainingSessions/check/`, data)
 }
 export const cancelSession = async data => {
   return axios.post(`${API_BASE_URL}/v1/bookings/cancel/`, data)
