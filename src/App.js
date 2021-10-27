@@ -7,6 +7,7 @@ import Login from './components/login/Login'
 import Home from './pages/home/Home.js'
 import Logout from './components/logout/Logout'
 import Signup from './components/signup/Signup'
+import Profile from './components/profile/Profile'
 import BookingSession from './components/bookingSession/BookingSession.js'
 
 import './App.css'
@@ -29,6 +30,7 @@ const App = () => {
                   <Route path='/login' exact={true} component={Login} />
                   <Route path='/logout' exact={true} component={Logout} />
                   <Route path='/signup' exact={true} component={Signup} />
+                  <Route path='/profile' exact={true} component={Profile} />
                   <Route
                     path='/mySessions'
                     exact={true}

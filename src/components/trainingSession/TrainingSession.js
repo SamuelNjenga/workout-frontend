@@ -131,6 +131,14 @@ const TrainingSession = ({ session }) => {
       <Card className={classes.root}>
         <Toaster />
         <CardActionArea>
+          <Image
+            key={session.id}
+            cloudName='greatbodyworkoutcloud'
+            publicId={`${session.image}`}
+            width='300'
+            height='200'
+            crop='scale'
+          />
           <CardContent>
             <header className='product-price'>
               {' '}
@@ -164,16 +172,30 @@ const TrainingSession = ({ session }) => {
               View More
             </Button>
           </Link>
-          <Button
-            variant='contained'
-            color='primary'
-            disableRipple
-            className={classes.margin}
-            style={{ cursor: 'pointer', borderRadius: '40px' }}
-            onClick={() => bookFunction(userId, session, 1)}
-          >
-            {checkFunction(session.id) ? 'ALREADY BOOKED' : 'BOOK NOW'}
-          </Button>
+          {checkFunction(session.id) ? (
+            <Button
+              variant='contained'
+              color='primary'
+              disableRipple
+              className={classes.margin}
+              style={{ cursor: 'pointer', borderRadius: '40px' }}
+              // onClick={() => bookFunction(userId, session, 1)}
+              disabled={true}
+            >
+              ALREADY BOOKED
+            </Button>
+          ) : (
+            <Button
+              variant='contained'
+              color='primary'
+              disableRipple
+              className={classes.margin}
+              style={{ cursor: 'pointer', borderRadius: '40px' }}
+              onClick={() => bookFunction(userId, session, 1)}
+            >
+              BOOK NOW
+            </Button>
+          )}
         </CardActions>
       </Card>
       <Snackbar

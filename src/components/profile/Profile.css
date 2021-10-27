@@ -1,0 +1,13 @@
+.my-account-heading {
+  color: rgba(243, 156, 18, 1);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.85rem;
+}
+.detail-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+.detail-description {
+  font-size: 1.25rem;
+}
