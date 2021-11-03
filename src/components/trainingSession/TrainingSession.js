@@ -70,9 +70,10 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const notify = () => toast.success('The booking was successful.')
+const errorNotify = error => toast(`${error}`)
 
 const TrainingSession = ({ session }) => {
-  const { bookings, allBookings } = useBookings()
+  const { bookings, allBookings, setAllBookings,setBookings } = useBookings()
 
   const classes = useStyles()
   const [open, setOpen] = useState(false)
@@ -87,13 +88,15 @@ const TrainingSession = ({ session }) => {
     setOpen(false)
   }
 
-  const bookFunction = (userId, newSession, quantity) => {
+  const bookFunction = async (userId, newSession, quantity) => {
     try {
-      bookSession({
+      const res = await bookSession({
         userId: userId,
         newSession: newSession,
         quantity: quantity
       })
+      setAllBookings(res.data.response)
+      setBookings(res.data.response2.bookings)
       notify()
     } catch (e) {
       console.log(e)
@@ -167,6 +170,7 @@ const TrainingSession = ({ session }) => {
               color='primary'
               disableRipple
               className={classes.margin}
+              size = 'small'
               style={{ cursor: 'pointer', borderRadius: '40px' }}
             >
               View More
@@ -180,6 +184,7 @@ const TrainingSession = ({ session }) => {
               className={classes.margin}
               style={{ cursor: 'pointer', borderRadius: '40px' }}
               // onClick={() => bookFunction(userId, session, 1)}
+              size='small'
               disabled={true}
             >
               ALREADY BOOKED
@@ -190,6 +195,7 @@ const TrainingSession = ({ session }) => {
               color='primary'
               disableRipple
               className={classes.margin}
+              size='small'
               style={{ cursor: 'pointer', borderRadius: '40px' }}
               onClick={() => bookFunction(userId, session, 1)}
             >

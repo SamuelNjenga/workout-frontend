@@ -66,6 +66,7 @@ export const BookingProvider = props => {
         page,
         setCount,
         allBookings,
+        setAllBookings,
         setPage,
         isLoading,
         setLoading,

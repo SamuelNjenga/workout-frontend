@@ -45,7 +45,7 @@ export const getAccountDetails = async id => {
 export const getBookingDetails = async (id, page) => {
   return axios.get(`${API_BASE_URL}/v1/bookings/${id}?page=${page}`)
 }
-export const getAllBookingDetails = async (id) => {
+export const getAllBookingDetails = async id => {
   return axios.get(`${API_BASE_URL}/v1/bookings/all/${id}`)
 }
 export const getUserDetails = async id => {
@@ -88,4 +88,8 @@ export const cancelSession = async data => {
 }
 export const updateUserData = async (id, values, data) => {
   return axios.put(`${API_BASE_URL}/v1/users/${id}`, values, data)
+}
+
+export const getSessionsBasedOnServiceName = async (name, page) => {
+  return axios.get(`${API_BASE_URL}/v1/serviceTypes/name/${name}?page=${page}`)
 }

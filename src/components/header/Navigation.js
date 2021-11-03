@@ -88,27 +88,27 @@ const Navigation = () => {
             >
               <NavDropdown.Item
                 as={Link}
-                to={`/product-category/${'aerobics'}`}
+                to={`/service-category/${'Aerobics Classes'}`}
                 onClick={() => setExpanded(false)}
                 className='nav-heading'
               >
-                Aerobics
+                Aerobics Classes
               </NavDropdown.Item>
               <NavDropdown.Item
                 as={Link}
-                to={`/service-category/${'weightLoss'}`}
+                to={`/service-category/${'Yoga Classes'}`}
                 onClick={() => setExpanded(false)}
                 className='nav-heading'
               >
-                Weight Loss
+                Yoga Classes
               </NavDropdown.Item>
               <NavDropdown.Item
                 as={Link}
-                to={`/service-category/${'strengthTraining'}`}
+                to={`/service-category/${'Zumba Classes'}`}
                 onClick={() => setExpanded(false)}
                 className='nav-heading'
               >
-                Strength Training
+                Zumba Classes
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item

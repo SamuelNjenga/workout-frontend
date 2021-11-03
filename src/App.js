@@ -15,6 +15,7 @@ import { TrainingSessionProvider } from './contexts/TrainingSessionContext'
 import { BookingProvider } from './contexts/BookingContext'
 import { UserProvider } from './contexts/UserContext'
 import { LoginProvider } from './contexts/LoginContext'
+import CategoryList from './components/serviceCategory/CategoryList'
 
 const App = () => {
   return (
@@ -36,6 +37,7 @@ const App = () => {
                     exact={true}
                     component={BookingSession}
                   />
+                  <Route path='/service-category/:name' exact={true} component={CategoryList} />
                 </Switch>
               </Router>
             </BookingProvider>

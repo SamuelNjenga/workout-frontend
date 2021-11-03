@@ -46,6 +46,8 @@ const notify = () =>
     duration: 4000
   })
 
+const errorNotify = error => toast(`${error}`)
+
 function Login () {
   const classes = useStyles()
   const history = useHistory()
@@ -90,7 +92,7 @@ function Login () {
                   }
                   setSubmitting(false)
                 } catch (err) {
-                  console.error(err)
+                  errorNotify(err.response.data.message)
                   setError(true)
                   setSubmitting(false)
                 }
