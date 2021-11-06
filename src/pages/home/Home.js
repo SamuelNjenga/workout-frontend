@@ -6,31 +6,17 @@ import TextTwo from './TextTwo'
 
 import './Home.css'
 import Main from '../../components/trainingSession/Main'
+import ImageSlider from './ImageSlider'
+import Service from './Service'
 
 const Home = () => {
   return (
     <>
-      <div className='main-div'>
-        <div style={{ backgroundColor: 'gray' }} className='sub-main-div'>
-          <div className='text-one'>
-            <TextOne />
-          </div>
-        </div>
-        <div className='sub-main-div'>
-          <Card style={{ backgroundColor: 'gray' }}>
-            <Card.Img
-              className='main-image'
-              src={window.location.origin + '/assets/foot.jpg'}
-            />
-            <Card.ImgOverlay>
-              <div className='text-two'>
-                <TextTwo />
-              </div>
-            </Card.ImgOverlay>
-          </Card>
-        </div>
+      <div>
+        <ImageSlider />
       </div>
       <Main />
+      <Service />
     </>
   )
 }

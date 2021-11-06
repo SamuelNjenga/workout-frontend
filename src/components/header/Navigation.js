@@ -56,7 +56,7 @@ const Navigation = () => {
           onClick={() => setExpanded(expanded ? false : 'expanded')}
         />
         <Navbar.Collapse id='responsive-navbar-nav'>
-          <Nav className='mr-auto'>
+          <Nav className='me-auto'>
             <Nav.Link
               as={Link}
               to='/'
