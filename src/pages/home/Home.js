@@ -8,6 +8,7 @@ import './Home.css'
 import Main from '../../components/trainingSession/Main'
 import ImageSlider from './ImageSlider'
 import Service from './Service'
+import Footer from '../../components/footer/Footer'
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       </div>
       <Main />
       <Service />
+      <Footer/>
     </>
   )
 }
