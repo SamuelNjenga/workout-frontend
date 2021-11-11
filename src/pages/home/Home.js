@@ -9,6 +9,7 @@ import Main from '../../components/trainingSession/Main'
 import ImageSlider from './ImageSlider'
 import Service from './Service'
 import Footer from '../../components/footer/Footer'
+import Pricing from '../../components/pricing/Pricing'
 
 const Home = () => {
   return (
@@ -18,7 +19,8 @@ const Home = () => {
       </div>
       <Main />
       <Service />
-      <Footer/>
+      <Pricing />
+      <Footer />
     </>
   )
 }
