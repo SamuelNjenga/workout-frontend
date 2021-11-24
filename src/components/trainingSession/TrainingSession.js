@@ -15,6 +15,8 @@ import moment from 'moment'
 import { bookSession, checkSession } from '../../services/APIUtils'
 import { useBookings } from '../../contexts/BookingContext'
 
+import '../bookingSession/Booking.css'
+
 export const BootstrapButton = withStyles({
   root: {
     boxShadow: 'none',
@@ -70,10 +72,10 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const notify = () => toast.success('The booking was successful.')
-const errorNotify = error => toast(`${error}`)
+const errorNotify = error => toast.error(`${error}`)
 
 const TrainingSession = ({ session }) => {
-  const { bookings, allBookings, setAllBookings,setBookings } = useBookings()
+  const { bookings, allBookings, setAllBookings, setBookings } = useBookings()
 
   const classes = useStyles()
   const [open, setOpen] = useState(false)
@@ -98,8 +100,9 @@ const TrainingSession = ({ session }) => {
       setAllBookings(res.data.response)
       setBookings(res.data.response2.bookings)
       notify()
-    } catch (e) {
-      console.log(e)
+    } catch (err) {
+      errorNotify(err.response.data.message)
+      console.log('Err', err.response.data)
     }
   }
 
@@ -143,23 +146,30 @@ const TrainingSession = ({ session }) => {
             crop='scale'
           />
           <CardContent>
-            <header className='product-price'>
+            <header className='general-data'>
               {' '}
-              Service Id : {session.id}
+              Session Id : <span className='actual-data'>{session.id}</span>
             </header>
-            <header className='product-price'>
+            <header className='general-data'>
               {' '}
               Service Start Time :{' '}
-              {moment(session.startTime).format('MMMM Do YYYY, h:mm:ss a')}
+              <span className='actual-data'>
+                {moment(session.startTime).format('MMMM Do YYYY, h:mm:ss a')}
+              </span>
             </header>
-            <header className='product-price'>
+            <header className='general-data'>
               {' '}
               Service End Time :{' '}
-              {moment(session.endTime).format('MMMM Do YYYY, h:mm:ss a')}
+              <span className='actual-data'>
+                {moment(session.endTime).format('MMMM Do YYYY, h:mm:ss a')}
+              </span>
             </header>
-            <header className='product-price'>
+            <header className='general-data'>
               {' '}
-              Service State : <Chip label={session.state} />
+              Service State :{' '}
+              <span className='actual-data'>
+                <Chip label={session.state} />
+              </span>
             </header>
           </CardContent>
         </CardActionArea>
@@ -170,7 +180,7 @@ const TrainingSession = ({ session }) => {
               color='primary'
               disableRipple
               className={classes.margin}
-              size = 'small'
+              size='small'
               style={{ cursor: 'pointer', borderRadius: '40px' }}
             >
               View More

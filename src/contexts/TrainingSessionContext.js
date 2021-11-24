@@ -1,9 +1,13 @@
 import React, { createContext, useState, useContext, useEffect } from 'react'
+
 import { getSessions } from '../services/APIUtils'
+
 export const TrainingSessionContext = createContext()
+
 export function useSessions () {
   return useContext(TrainingSessionContext)
 }
+
 export const TrainingSessionProvider = props => {
   const [sessions, setSessions] = useState([])
   const [count, setCount] = useState(null)
@@ -20,6 +24,7 @@ export const TrainingSessionProvider = props => {
     setSessions(data)
     setLoading(false)
   }
+  
   useEffect(() => {
     fetchSessions()
   }, [page])

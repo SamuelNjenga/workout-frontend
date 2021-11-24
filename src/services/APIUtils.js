@@ -86,6 +86,9 @@ export const checkSession = async data => {
 export const cancelSession = async data => {
   return axios.post(`${API_BASE_URL}/v1/bookings/cancel/`, data)
 }
+export const bookAgainSession = async data => {
+  return axios.post(`${API_BASE_URL}/v1/bookings/bookAgain/`, data)
+}
 export const updateUserData = async (id, values, data) => {
   return axios.put(`${API_BASE_URL}/v1/users/${id}`, values, data)
 }

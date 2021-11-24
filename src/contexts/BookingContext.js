@@ -1,13 +1,18 @@
 import React, { createContext, useState, useContext, useEffect } from 'react'
+
 import {
   cancelSession,
   getAllBookingDetails,
-  getBookingDetails
+  getBookingDetails,
+  bookAgainSession
 } from '../services/APIUtils'
+
 export const BookingContext = createContext()
+
 export function useBookings () {
   return useContext(BookingContext)
 }
+
 export const BookingProvider = props => {
   // const key = 'Page'
   const [bookings, setBookings] = useState([])
@@ -27,7 +32,23 @@ export const BookingProvider = props => {
         bookingId,
         page
       })
-      setBookings(res?.data?.bookings)
+      setAllBookings(res.data.response3)
+      setBookings(res.data.response2.bookings)
+      //setBookings(res?.data?.bookings)
+      // setAllBookings(res.data.response)
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  const bookAgainFunction = async (bookingId, page) => {
+    try {
+      const res = await bookAgainSession({
+        bookingId,
+        page
+      })
+      setAllBookings(res.data.response3)
+      setBookings(res.data.response2.bookings)
     } catch (e) {
       console.log(e)
     }
@@ -70,7 +91,8 @@ export const BookingProvider = props => {
         setPage,
         isLoading,
         setLoading,
-        cancelFunction
+        cancelFunction,
+        bookAgainFunction
       }}
     >
       {props.children}
