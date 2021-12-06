@@ -25,15 +25,15 @@ const Pricing = () => {
               </div>
               <img src='assets/pricing-free.png' className='img-fluid' alt='' />
               <ul>
-                <li>Aida dere</li>
+                <li>Monthly Deal</li>
               </ul>
-              <Link
+              {/* <Link
                 to='#'
                 className='btn-buy'
                 style={{ textDecoration: 'none' }}
               >
                 Buy Now
-              </Link>
+              </Link> */}
             </div>
           </div>
 
@@ -54,15 +54,15 @@ const Pricing = () => {
                 alt=''
               />
               <ul>
-                <li>Aida dere</li>
+                <li>Quarterly Deal</li>
               </ul>
-              <Link
+              {/* <Link
                 to='#'
                 className='btn-buy'
                 style={{ textDecoration: 'none' }}
               >
                 Buy Now
-              </Link>
+              </Link> */}
             </div>
           </div>
 
@@ -74,7 +74,7 @@ const Pricing = () => {
             <div className='box'>
               <h3 style={{ color: '#ff901c' }}>Half Year Plan</h3>
               <div className='price'>
-                <sup>KSH</sup>19000<span> / mo</span>
+                <sup>KSH</sup>29000<span> / mo</span>
               </div>
               <img
                 src='assets/pricing-business.png'
@@ -82,15 +82,15 @@ const Pricing = () => {
                 alt=''
               />
               <ul>
-                <li>Aida dere</li>
+                <li>Half Year Deal</li>
               </ul>
-              <Link
+              {/* <Link
                 to='#'
                 className='btn-buy'
                 style={{ textDecoration: 'none' }}
               >
                 Buy Now
-              </Link>
+              </Link> */}
             </div>
           </div>
 
@@ -110,15 +110,15 @@ const Pricing = () => {
                 alt=''
               />
               <ul>
-                <li>Aida dere</li>
+                <li>Yearly Deal</li>
               </ul>
-              <Link
+              {/* <Link
                 to='#'
                 className='btn-buy'
                 style={{ textDecoration: 'none' }}
               >
                 Buy Now
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>

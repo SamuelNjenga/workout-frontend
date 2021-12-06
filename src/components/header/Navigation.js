@@ -10,6 +10,8 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
 import { useLogin } from '../../contexts/LoginContext'
 
 import './Navigation.css'
+import { purple,orange } from '@material-ui/core/colors'
+import { styled } from '@material-ui/core'
 
 const Navigation = () => {
   const [scrollY, setScrollY] = useState(0)
@@ -32,6 +34,14 @@ const Navigation = () => {
       window.removeEventListener('scroll', logit)
     }
   }, [])
+
+  const ColorButton = styled(Button)(({ theme }) => ({
+  color: theme.palette.getContrastText(purple[500]),
+  backgroundColor: orange[500],
+  '&:hover': {
+    backgroundColor: orange[700]
+  }
+}))
 
   return (
     <div>
@@ -84,6 +94,7 @@ const Navigation = () => {
             <NavDropdown
               title='Our Services'
               id='collasible-nav-dropdown'
+              style={{ color: 'orange' }}
               className='nav-heading'
             >
               <NavDropdown.Item
@@ -163,7 +174,6 @@ const Navigation = () => {
               <div style={{ textAlign: 'center' }}>
                 <Button
                   variant='contained'
-                  color='primary'
                   size='small'
                   disableRipple
                   className='logout-btn'
@@ -178,19 +188,20 @@ const Navigation = () => {
             ) : (
               <>
                 <div style={{ textAlign: 'center' }}>
-                  <Button
+                  <ColorButton
                     variant='contained'
-                    color='primary'
                     size='small'
                     disableRipple
                     className='login-btn'
-                    style={{ borderRadius: '40px' }}
+                    style={{
+                      borderRadius: '40px',
+                    }}
                     onClick={() => setExpanded(false)}
                   >
                     <Nav.Link as={Link} to='/login' className='btn-link'>
                       Log in
                     </Nav.Link>
-                  </Button>
+                  </ColorButton>
                 </div>
                 <div style={{ textAlign: 'center' }}>
                   <Button
@@ -198,12 +209,12 @@ const Navigation = () => {
                     color='primary'
                     size='small'
                     disableRipple
-                    className='signup-btn'
+                    className='signup-btn btn-primary'
                     style={{ borderRadius: '40px' }}
                     onClick={() => setExpanded(false)}
                   >
                     <Nav.Link as={Link} to='/signup'>
-                      Sign Up
+                      Register
                     </Nav.Link>
                   </Button>
                 </div>
