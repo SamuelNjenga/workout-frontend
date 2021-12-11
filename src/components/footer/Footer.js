@@ -14,9 +14,9 @@ const Footer = () => {
             <div class='col-lg-4 mb-5 mb-lg-0'>
               <h4 class='text-uppercase mb-4'>Our Location</h4>
               <p class='lead mb-0'>
-                2215 John Daniel Drive
+              Along Ronald Ngala Street
                 <br />
-                Clark, MO 65243
+                Nairobi County
               </p>
             </div>
             {/* Footer Social Icons */}

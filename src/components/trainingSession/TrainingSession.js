@@ -93,7 +93,7 @@ const TrainingSession = ({ session }) => {
   const bookFunction = async (userId, newSession, quantity) => {
     try {
       const res = await bookSession({
-        userId: userId,
+        userId: +userId,
         newSession: newSession,
         quantity: quantity
       })

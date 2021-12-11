@@ -44,7 +44,7 @@ const SignupSchema = Yup.object().shape({
 })
 
 const notify = () =>
-  toast.success('Signed up successfully. You can now login.', {
+  toast.success('Signed up successfully. You can now login after paying membership fee.', {
     duration: 4000
   })
 

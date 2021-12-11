@@ -165,7 +165,13 @@ function Login () {
                 <Box margin={1}>
                   <h5>
                     Don't have an account yet?{' '}
-                    <Link to='/signUp' style={{ textDecoration: 'none',color: 'rgba(243, 156, 18, 1)' }}>
+                    <Link
+                      to='/signUp'
+                      style={{
+                        textDecoration: 'none',
+                        color: 'rgba(243, 156, 18, 1)'
+                      }}
+                    >
                       Sign Up
                     </Link>
                   </h5>
